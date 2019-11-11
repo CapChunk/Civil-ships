@@ -17,6 +17,7 @@ class Barco
 public:
     Barco();
     Guerrero reclutar();
+    stack<Guerrero> cpy();
     void AgregarGuerrero(Guerrero one);
     void EliminarGuerrero();
     Guerrero Top();

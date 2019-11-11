@@ -134,7 +134,8 @@ Barco *Civilization::astillero()
 {
     string id;
     double combustible;
-    Barco *s = new Barco();
+    Barco *s = new Barco();\
+    cin.ignore();
     cout<<"Ingrese el Id del barco"<<endl;
     getline(cin,id);
     s->setId(id);
@@ -168,7 +169,71 @@ void Civilization::Fired(double &joven)
         {
             puerto.erase(it);
         }
-     }
+    }
+}
+
+void Civilization::Marco(string &polo)
+{
+    string t;
+    size_t opt;
+    for (auto it = puerto.begin(); it != puerto.end(); ++it)
+    {  t=(*it)->getId();
+        if(t == polo)
+        {
+            size_t Xfiles = 0;
+            while(Xfiles==0){
+           cout<<"Astillero: Barco - "<<t<<endl;
+           cout<<"1)Agregar guerrero"<<endl;
+           cout<<"2)Eliminar guerrero"<<endl;
+           cout<<"3)Mostrar ultimo guerrero"<<endl;
+           cout<<"4)Mostrar todos los guerreros"<<endl;
+           cout<<"5)Salir"<<endl;
+           cin>>opt;
+           switch (opt) {
+           case 1:
+           {
+               (*it)->AgregarGuerrero((*it)->reclutar());
+               Xfiles = 0;
+           }break;
+           case 2:
+           { (*it)->EliminarGuerrero();
+           Xfiles = 0;}
+               break;
+              case 3:
+           {
+               cout << setw(1)<<"|ID|"<<
+                        setw(3)    <<"|Salud|"<<
+                         setw(5)   <<"|Fuerza|"<<
+                         setw(7) <<"|Armadura|"<<
+                         setw(9)<<"|Clase|"<<endl;
+               Guerrero hercules = (*it)->Top();
+               cout<<hercules<<endl;
+               Xfiles = 0;
+           }
+               break;
+           case 4:
+        {
+               cout << setw(1)<<"|ID|"<<
+                        setw(3)    <<"|Salud|"<<
+                         setw(5)   <<"|Fuerza|"<<
+                         setw(7) <<"|Armadura|"<<
+                         setw(9)<<"|Clase|"<<endl;
+               stack<Guerrero> Sparta = (*it)->cpy();
+               while (!Sparta.empty()) {
+               cout<< Sparta.top()<<endl;
+              Sparta.pop();}
+               Xfiles = 0;
+           }break;
+           case 5:
+           { Xfiles =1; }break;
+           }
+
+           }
+        }else {
+cout<<"El barco no ha sido encontrado, no hay un barco con ese nombre en el astillero"<<endl;
+}
+    }
+
 }
 
 

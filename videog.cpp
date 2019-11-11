@@ -59,9 +59,10 @@ void videoG::Midsomer(size_t &chusen)  // Chusen es un mal chiste de la palabra 
         AgregarBarco,
         MostrarBarcos,
         BuscarBarcos,
-        EliminarBarcos
+        EliminarBarcos,
+        salir
     };
-    while (o!=5) {
+    while (o!=9) {
 
     cout<<"1) Agregar aldeano"<<endl;
     cout<<"2) Eliminar aldeano"<<endl;
@@ -162,10 +163,13 @@ o=0;
     {
         string sir;
         cout<<"Ingrese el Id del barco a buscar:"<<endl;
+        cin.ignore();
         getline(cin,sir);
+        mesopotamia[chusen].Marco(sir);
+
        // AQUI FALTA PONERLE LA CONECTADA PARA QUE SELECCIONE EL BARCO Y MUESTRE EL SUBMENU
-   // Y TAMBIEN QUE CUANDO ELIMINE BARCOS, LIBERE LA MEMORIA DEL PUNTERO, 11/06/19
-        // mesopotamia[chusen].
+   // Y TAMBIEN QUE CUANDO ELIMINE BARCOS, LIBERE LA MEMORIA DEL PUNTERO
+         o=0;
 
     }
         break;
@@ -184,6 +188,7 @@ o=0;
   if(up>0 && up<4)
       if(up==1)
         {cout<<"Ingrese El id del barco a eliminar"<<endl;
+          cin.ignore();
   getline(cin,rr);
           mesopotamia[chusen].kbum(rr);
           oe=0;
@@ -197,6 +202,10 @@ mesopotamia[chusen].Fired(ee);
   o=0;
     }
         break;
+    case salir:
+    {
+    o=9;
+    }break;
     default:
         break;
     }
@@ -248,7 +257,7 @@ void videoG::recuperar()
         {
             while(!archivo.eof())
             {
-                size_t h;
+
                 string n,x,y,z;
                 Civilization v;
                 int ubc, count;

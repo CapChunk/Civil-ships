@@ -27,6 +27,7 @@ public:
     Barco* astillero();
     void kbum(string &poreeeso);  // ELIMINAR BARCO POR ID
     void Fired(double &joven);  // ELIMINAR BARCO POR COMBUSTIBLE
+    void Marco(string &polo);
     // LO ANTERIOR DE LAS PURAS CIVILIZACIONES Y ESE JALE
 
     Civilization(string &a, int &x , int &y);

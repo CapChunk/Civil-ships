@@ -100,6 +100,7 @@ Barco::Barco()
 {
     armor = 100.0;
     Velocity= 0.0;
+    Fuel = 100;
 }
 
 Guerrero Barco::reclutar()
@@ -109,6 +110,7 @@ Guerrero Barco::reclutar()
     double f,e;
 
     cout<<"Ingrese el id del guerrero (nombre)"<<endl;
+    cin.ignore();
     getline(cin,n);
     cout<<"(0 - 100)Ingrese la salud de "<<n<<endl;
     cin>>s;
@@ -154,4 +156,9 @@ case 1:
     Guerrero h = Guerrero(n,s,f,e,c);
 
     return h;
+}
+
+stack<Guerrero> Barco::cpy()
+{
+    return  army;
 }
